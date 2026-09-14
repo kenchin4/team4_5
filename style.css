@@ -212,3 +212,16 @@ ul.hist .what small{display:block;color:var(--muted);font-size:13px;line-height:
 .logo-note .lbl{font-family:"Oswald",sans-serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);font-weight:600;margin:0 0 4px}
 .logo-note p{margin:0;font-size:14px}
 @media (max-width:520px){.logo-note{grid-template-columns:1fr}.logo-note .mark{width:80px;height:80px}}
+
+/* --- hero photo switcher (home) : 16:9 --- */
+.heroshow{margin:0}
+.heroshow .shots{position:relative;aspect-ratio:16/9;border:1px solid var(--line);background:var(--surface-2);box-shadow:0 16px 34px -26px var(--shadow);overflow:hidden}
+.heroshow .shots img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s ease}
+.heroshow .shots img.on{opacity:1}
+.heroshow .thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:6px}
+.heroshow .thumbs button{padding:0;border:1px solid var(--line);background:none;cursor:pointer;line-height:0;opacity:.62;transition:opacity .2s}
+.heroshow .thumbs button img{width:100%;height:100%;aspect-ratio:16/9;object-fit:cover}
+.heroshow .thumbs button:hover{opacity:.85}
+.heroshow .thumbs button[aria-selected="true"]{opacity:1;border-color:var(--accent);box-shadow:inset 0 0 0 2px var(--accent)}
+.heroshow .thumbs button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){.heroshow .shots img{transition:none}}

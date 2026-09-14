@@ -8,7 +8,7 @@
 <meta property="og:title" content="チーム4.5畳オフィシャル">
 <meta property="og:description" content="団地愛好家集団『チーム4.5畳』のオフィシャルサイト。団地同人誌『団地ブック』の発行、団地TOUR、団地RADIOなど、大阪発の団地啓蒙活動をお伝えします。">
 <meta property="og:type" content="website">
-<meta property="og:image" content="img/hero.jpg">
+<meta property="og:image" content="img/hero1.jpg">
 <title>チーム4.5畳オフィシャル</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,10 +43,20 @@
           <p class="slogan">団地は日本の原風景！</p>
           <p class="lede">公団住宅・公営住宅をはじめとする団地を撮影し、収集し、分類する。給水塔、ツインコリダー、市街地住宅、ダンメン、アニマルライド——住棟のディテールを愛でながら、団地を「鑑賞の対象」として世の中に手渡していく大阪発のチームです。団地同人誌『団地ブック』の発行を軸に、見学ツアーやトークイベント、ラジオで日々団地啓蒙活動を実施中。</p>
         </div>
-        <figure class="heroshot">
-          <img src="img/hero.jpg" alt="青空の下に並ぶ団地の住棟" width="520" height="390">
-          <figcaption>DANCHI / 大阪発</figcaption>
-        </figure>
+        <div class="heroshow">
+          <div class="shots">
+            <img src="img/hero1.jpg" alt="団地の広場と、両側に建つ住棟" width="1280" height="720" class="on" fetchpriority="high">
+            <img src="img/hero2.jpg" alt="高層の住棟が囲む団地を見下ろす" width="1280" height="720" loading="lazy">
+            <img src="img/hero3.jpg" alt="山なみを背に整然と並ぶ中層の住棟" width="1280" height="720" loading="lazy">
+            <img src="img/hero4.jpg" alt="緑の斜面に沿って建つ白い住棟群" width="1280" height="720" loading="lazy">
+          </div>
+          <div class="thumbs" role="tablist" aria-label="団地の写真を切り替え">
+            <button type="button" role="tab" aria-selected="true" aria-label="写真1"><img src="img/hero1-th.jpg" alt="" width="320" height="180"></button>
+            <button type="button" role="tab" aria-selected="false" aria-label="写真2"><img src="img/hero2-th.jpg" alt="" width="320" height="180" loading="lazy"></button>
+            <button type="button" role="tab" aria-selected="false" aria-label="写真3"><img src="img/hero3-th.jpg" alt="" width="320" height="180" loading="lazy"></button>
+            <button type="button" role="tab" aria-selected="false" aria-label="写真4"><img src="img/hero4-th.jpg" alt="" width="320" height="180" loading="lazy"></button>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -118,5 +128,32 @@
 
   </div>
 </main>
+
+<script>
+(function(){
+  var box=document.querySelector('.heroshow'); if(!box) return;
+  var shots=box.querySelectorAll('.shots img'), tabs=box.querySelectorAll('.thumbs button'), i=0, timer=null;
+  var still=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function show(n){
+    i=(n+shots.length)%shots.length;
+    shots.forEach(function(el,k){el.classList.toggle('on',k===i)});
+    tabs.forEach(function(el,k){el.setAttribute('aria-selected',k===i?'true':'false')});
+  }
+  function play(){ if(still) return; stop(); timer=setInterval(function(){show(i+1)},6000); }
+  function stop(){ if(timer){clearInterval(timer); timer=null;} }
+  tabs.forEach(function(el,k){
+    el.addEventListener('click',function(){show(k); play();});
+    el.addEventListener('keydown',function(e){
+      if(e.key==='ArrowRight'||e.key==='ArrowLeft'){
+        e.preventDefault(); var n=(k+(e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;
+        tabs[n].focus(); show(n); play();
+      }
+    });
+  });
+  box.addEventListener('mouseenter',stop); box.addEventListener('mouseleave',play);
+  box.addEventListener('focusin',stop); box.addEventListener('focusout',play);
+  play();
+})();
+</script>
 </body>
 </html>
