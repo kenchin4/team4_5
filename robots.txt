@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kenchin4.github.io/team4_5/sitemap.xml
