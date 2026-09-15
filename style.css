@@ -225,3 +225,11 @@ ul.hist .what small{display:block;color:var(--muted);font-size:13px;line-height:
 .heroshow .thumbs button[aria-selected="true"]{opacity:1;border-color:var(--accent);box-shadow:inset 0 0 0 2px var(--accent)}
 .heroshow .thumbs button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
 @media (prefers-reduced-motion:reduce){.heroshow .shots img{transition:none}}
+
+/* --- member faces under the hero photos (home) --- */
+.faces{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-top:12px}
+.face{display:block;text-decoration:none;border-radius:50%}
+.face img{width:100%;height:auto;aspect-ratio:1;object-fit:cover;border:1px solid var(--line);border-radius:50%;background:var(--surface-2)}
+.face:hover img{border-color:var(--accent)}
+.face:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+@media (max-width:420px){.faces{gap:5px}}
