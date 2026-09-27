@@ -233,3 +233,6 @@ ul.hist .what small{display:block;color:var(--muted);font-size:13px;line-height:
 .face:hover img{border-color:var(--accent)}
 .face:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
 @media (max-width:420px){.faces{gap:5px}}
+
+/* --- 固定メニュー分だけ下げてアンカーに飛ぶ（#members / #events / #history） --- */
+section[id]{scroll-margin-top:70px}
