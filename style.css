@@ -236,3 +236,12 @@ ul.hist .what small{display:block;color:var(--muted);font-size:13px;line-height:
 
 /* --- 固定メニュー分だけ下げてアンカーに飛ぶ（#members / #events / #history） --- */
 section[id]{scroll-margin-top:70px}
+
+/* --- 連載一覧の小見出し（過去の活動ページ） --- */
+h3.sub{font-family:"Zen Kaku Gothic Antique","Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:16px;margin:26px 0 10px;color:var(--teal)}
+h3.sub:first-of-type{margin-top:0}
+.news a{color:inherit;text-decoration:none;border-bottom:1px solid var(--line)}
+.news a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+.news small{display:block;color:var(--muted);font-size:13px;line-height:1.6}
+ul.hist .what a{color:inherit;text-decoration:none;border-bottom:1px solid var(--line)}
+ul.hist .what a:hover{color:var(--accent);border-bottom-color:var(--accent)}
